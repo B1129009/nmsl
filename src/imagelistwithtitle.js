@@ -10,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Avatar from '@mui/material/Avatar';
 
-const SERVER_ADDRESS = "http://172.27.6.192:3001";
+const SERVER_ADDRESS = "https://8220-59-125-186-126.ngrok-free.app";
 
 const imageListContainerStyle = {
   display: 'flex',
