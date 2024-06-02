@@ -10,7 +10,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const SERVER_ADDRESS = 'https://8220-59-125-186-126.ngrok-free.app';
 
 const SelectLocation = ({ handleLocationChange }) => {
-  const [location, setLocation] = useState({ city: '', district: '', road: '', serum: '' });
+  const [location, setLocation] = useState([ '',  '', '' , '']);
   const [cities, setCities] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [roads, setRoads] = useState([]);

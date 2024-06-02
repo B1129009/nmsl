@@ -3,7 +3,7 @@ import SelectLocation from './selectLocation';
 import Datagrid from './datagrid';
 
 const App = () => {
-  const [selectedLocation, setSelectedLocation] = useState({ city: '', district: '', road: '' });
+  const [selectedLocation, setSelectedLocation] = useState([ '',  '', '' ]);
 
   const handleLocationChange = (location) => {
     setSelectedLocation(location);
