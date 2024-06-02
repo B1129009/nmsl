@@ -3,7 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import MapWithMarkerCluster from './map';
 import Axios from 'axios';
 
-const SERVER_ADDRESS = "http://172.27.6.192:3001";
+const SERVER_ADDRESS = "https://8220-59-125-186-126.ngrok-free.app";
 
 const Datagrid = ({ selectedLocation }) => {
   const [loading, setLoading] = useState(true);
