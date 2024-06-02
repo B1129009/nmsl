@@ -56,11 +56,10 @@ const ImageListWithTitle = () => {
     // Fetch snake data from backend
     Axios.get(`${SERVER_ADDRESS}/snakes`)
       .then((response) => {
-        // 確保數據是數組格式
         if (Array.isArray(response.data)) {
           setSnakeList(response.data);
         } else {
-          console.error('Received data is not an array:', response.data);
+          console.error('Received snake data is not an array:', response.data);
         }
       })
       .catch((error) => {
@@ -70,7 +69,11 @@ const ImageListWithTitle = () => {
     // Fetch color options from backend when component mounts
     Axios.get(`${SERVER_ADDRESS}/snakeColors`)
       .then((response) => {
-        setColorOptions(response.data.map(color => color['蛇的顏色']));
+        if (Array.isArray(response.data)) {
+          setColorOptions(response.data.map(color => color['蛇的顏色']));
+        } else {
+          console.error('Received color options data is not an array:', response.data);
+        }
       })
       .catch((error) => {
         console.error('Error fetching color options:', error);
@@ -79,10 +82,14 @@ const ImageListWithTitle = () => {
     // Fetch pattern options from backend when component mounts
     Axios.get(`${SERVER_ADDRESS}/snakePatterns`)
       .then((response) => {
-        setPatternOptions(response.data.map(pattern => ({
-          pattern: pattern['蛇的斑紋'],
-          patternImageURL: pattern['patternImageURL']
-        })));
+        if (Array.isArray(response.data)) {
+          setPatternOptions(response.data.map(pattern => ({
+            pattern: pattern['蛇的斑紋'],
+            patternImageURL: pattern['patternImageURL']
+          })));
+        } else {
+          console.error('Received pattern options data is not an array:', response.data);
+        }
       })
       .catch((error) => {
         console.error('Error fetching pattern options:', error);
@@ -91,7 +98,11 @@ const ImageListWithTitle = () => {
     // Fetch head shape options from backend when component mounts
     Axios.get(`${SERVER_ADDRESS}/head`)
       .then((response) => {
-        setHeadShapeOptions(response.data.map(headShape => headShape['頭部形狀']));
+        if (Array.isArray(response.data)) {
+          setHeadShapeOptions(response.data.map(headShape => headShape['頭部形狀']));
+        } else {
+          console.error('Received head shape options data is not an array:', response.data);
+        }
       })
       .catch((error) => {
         console.error('Error fetching head shape options:', error);
