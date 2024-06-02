@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import CircularProgress from '@mui/material/CircularProgress';
 
-const SERVER_ADDRESS = 'https://8220-59-125-186-126.ngrok-free.app';
+const SERVER_ADDRESS = 'https://172.20.10.9:3000';
 
 const SelectLocation = ({ handleLocationChange }) => {
   const [location, setLocation] = useState([ '',  '', '' , '']);
@@ -18,6 +18,8 @@ const SelectLocation = ({ handleLocationChange }) => {
   const [loadingCities, setLoadingCities] = useState(true);
   const [loadingDistricts, setLoadingDistricts] = useState(false);
   const [loadingRoads, setLoadingRoads] = useState(false);
+
+
 
   useEffect(() => {
     Axios.get(`${SERVER_ADDRESS}/cities`)
