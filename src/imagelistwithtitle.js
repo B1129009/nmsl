@@ -56,7 +56,12 @@ const ImageListWithTitle = () => {
     // Fetch snake data from backend
     Axios.get(`${SERVER_ADDRESS}/snakes`)
       .then((response) => {
-        setSnakeList(response.data);
+        // 確保數據是數組格式
+        if (Array.isArray(response.data)) {
+          setSnakeList(response.data);
+        } else {
+          console.error('Received data is not an array:', response.data);
+        }
       })
       .catch((error) => {
         console.error('Error fetching snake data:', error);
